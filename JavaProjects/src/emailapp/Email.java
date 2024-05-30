@@ -8,14 +8,16 @@ public class Email {
 	private String department;
 	private String password;
 	private int defaultPasswordLength= 8;
-	private int mailboxCapacity;
+	private int mailboxCapacity = 500;
 	private String alternateEmail;
+	private String companySuffix= "riceverse.com";
+	private String email;
 	
 	//constructor to receive the firstName and lastName
 	public Email(String firstName, String lastName) {
 		this.firstName= firstName;
 		this.lastName=lastName;
-		System.out.println("EMAIL CREATED: "+ this.firstName+ " "+ this.lastName); 
+		System.out.println("EMAIL CREATED FOR: "+ this.firstName+ " "+ this.lastName); 
 		//Call a method that returns department chose by user
 		this.department=setDepartment();
 		System.out.println("Department: " + this.department);
@@ -24,6 +26,10 @@ public class Email {
 		//Call a method to set a random password
 		this.password= randomPassword(defaultPasswordLength);
 		System.out.println("Genrated Password: " + this.password);
+		
+		//Combine elements to generate email
+		email = firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companySuffix;
+		System.out.println("Your Email is: "+ email);
 		
 	}
 	
@@ -54,11 +60,19 @@ public class Email {
 	
 	
 	//set the mailbox capacity
-	
+	public void setMailBoxCapacity(int capacity) {
+		this.mailboxCapacity= capacity;
+	}
 	
 	//set alternate Email
-	
+	public void setAlternateEmail(String altEmail) {
+		this.alternateEmail= altEmail;
+	}
 	
 	//Change the password
+	public void changePassword(String password) {
+		this.password=password;
+	}
+	
 	
 }
