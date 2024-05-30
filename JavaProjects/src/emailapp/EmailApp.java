@@ -5,6 +5,7 @@ public class EmailApp {
 	public static void main(String[] args) {
 		Email em1= new Email("Gayathri", "Namburu");
 		
+		System.out.println(em1.showInfo());
 	}
 
 }
